@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>What does this account say <br>about LGBTQIAA ?</title>
+        <title>Que dit ce compte sur les personnes LGBTQIAA+ ?</title>
         <!-- <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/base.min.css"
@@ -35,12 +35,14 @@
             *, *::before, *::after { box-sizing: border-box; }
 
             h1 {
+                display: block;
+                margin: 1rem;
                 font-size: 2rem;
-                color: var( --yellow );
+                color: var( --white );
             }
 
             form {
-                width: 25vw;
+                width: 25rem;
                 padding: 2rem;
                 display: block;
                 text-align: center;
@@ -68,8 +70,13 @@
                 background: var( --white );
             }
 
+            [data-type*=select-multiple].choices button.choices__button {
+                filter: invert( 1 );
+            }
+
             input {
-                padding: 2rem;
+                margin: 1rem;
+                padding: 1rem 2rem;
                 outline: none;
                 appearance: none;
                 border: none;
@@ -88,7 +95,7 @@
             input,
             input::placeholder {
                 opacity: 1;
-                color: var( --yellow );
+                color: var( --white );
             }
 
             button {
@@ -102,7 +109,7 @@
         </style>
     </head>
     <body>
-        <h1>What does this account say about LGBTQIAA ?</h1>
+        <h1>Que dit ce compte sur les personnes LGBTQIAA+ ?</h1>
         <form method="GET">
             <input
                 type="text"
@@ -127,7 +134,9 @@
                 let q = words.join(" OR ").replace(/\+/g," ");
                 // U+202A	‪	\xe2\x80\xaa	LEFT-TO-RIGHT EMBEDDING
                 // U+202C	‬	\xe2\x80\xac	POP DIRECTIONAL FORMATTING
-                let val = String.prototype.trim( user ).replace(/\u202A/g,"").replace(/\u202C/g,"");
+                let val = user.trim().replace( /\u202A/g,"" ).replace( /\u202C/g,"" );
+                // Add @ if missing
+                val = val.charAt( 0 ) == '@' ? val : `@${val}`;
                 return "https://twitter.com/search?q="+encodeURIComponent(q+" from:"+val);
             }
 
@@ -165,7 +174,7 @@
                     let datas = new FormData( e.target );
 
                     if( datas.get( 'user' ) )
-                        location.href = buildUrl( datas.get( 'user' ), datas.getAll( 'words[]' ) );
+                        buildUrl( datas.get( 'user' ), datas.getAll( 'words[]' ) );
 
                     return false;
 
