@@ -13,7 +13,7 @@ export default
         "transidentité",
         "non-binaire",
         "\"non+binaire\"",
-        "non+binarité\"",
+        "\"non+binarité\"",
         "\"non+binarité\"",
         "nb",
         "aroace",
