@@ -1,5 +1,6 @@
+export default
 {
-    "words": [
+    words: [
         "homosexualité",
         "gays",
         "lesbianisme",
@@ -28,7 +29,7 @@
         "pédo",
         "\"lobby+lgbt\""
     ],
-    "flags": [
+    flags: [
         "lgbt",
         "lgbt",
         "asexual",

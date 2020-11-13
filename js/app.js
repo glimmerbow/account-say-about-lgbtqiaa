@@ -1,4 +1,4 @@
-import * as data from './data.json';
+import * as data from './data.js';
 
 const buildUrl = ( user, words, is_scheme ) => {
 
@@ -13,9 +13,9 @@ const buildUrl = ( user, words, is_scheme ) => {
 const addOptions = (  ) => {
     let select = document.querySelector( 'select' );
 
-    if( !select || !data.words.length ) return;
+    if( !select || !data.default.words.length ) return;
 
-    data.words.forEach( ( word ) => {
+    data.default.words.forEach( ( word ) => {
         let option = document.createElement( 'option' );
         option.value = word;
         option.setAttribute( 'selected', true );
@@ -36,8 +36,8 @@ const addOptions = (  ) => {
 }
 
 const addBkg = ( ) => {
-    if( data.flags && data.flags.length )
-        document.querySelector( '.bkg' ).style.background = `var( --flag-${ data.flags[ Math.round( Math.random() * ( data.flags.length - 1 ) + 0 ) ] } )`;
+    if( data.default.flags && data.default.flags.length )
+        document.querySelector( '.bkg' ).style.background = `var( --flag-${ data.default.flags[ Math.round( Math.random() * ( data.default.flags.length - 1 ) + 0 ) ] } )`;
 }
 
 const eventsHandler = ( ) => {
