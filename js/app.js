@@ -30,8 +30,13 @@ const addOptions = (  ) => {
         removeItemButton: true,
         addItems: true,
         addItemText: (value) => {
-         return `Press Enter to add <b>"${value}"</b>`;
-       },
+            return `Press Enter to add <b>"${value}"</b>`;
+        },
+        loadingText: 'Chargement...',
+        noResultsText: 'Pas de résultat',
+        noChoicesText: 'Plus de mots',
+        itemSelectText: 'Cliquer pour sélectionner',
+        editItems: true,
     } );
 }
 
