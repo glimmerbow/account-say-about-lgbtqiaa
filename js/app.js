@@ -1,4 +1,4 @@
-import * as data from 'words.json';
+import * as data from './words.json';
 
 const buildUrl = ( user, words, is_scheme ) => {
 
